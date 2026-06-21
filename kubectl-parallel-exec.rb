@@ -2,7 +2,7 @@ class KubectlParallelExec < Formula
   desc "Execute commands on Kubernetes pods in parallel"
   homepage "https://github.com/cin/kubectl-parallel-exec"
   version "0.0.15"
-  license "mit"
+  license "MIT"
 
   if OS.mac?
     if Hardware::CPU.arm?
@@ -23,22 +23,10 @@ class KubectlParallelExec < Formula
   end
 
   def install
-    if OS.mac?
-      if Hardware::CPU.arm?
-        bin.install "kubectl-parallel-exec-darwin-arm64" => "kubectl-parallel-exec"
-      else
-        bin.install "kubectl-parallel-exec-darwin-amd64" => "kubectl-parallel-exec"
-      end
-    elsif OS.linux?
-      if Hardware::CPU.arm?
-        bin.install "kubectl-parallel-exec-linux-arm64" => "kubectl-parallel-exec"
-      else
-        bin.install "kubectl-parallel-exec-linux-amd64" => "kubectl-parallel-exec"
-      end
-    end
+    bin.install Dir["kubectl-parallel-exec-*"].first => "kubectl-parallel-exec"
   end
 
   test do
-    system "#{bin}/kubectl-parallel-exec", "--version"
+    assert_match version.to_s, shell_output("#{bin}/kubectl-parallel-exec -v")
   end
 end
