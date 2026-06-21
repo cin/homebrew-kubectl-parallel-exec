@@ -7,18 +7,18 @@ class KubectlParallelExec < Formula
   if OS.mac?
     if Hardware::CPU.arm?
       url "https://github.com/cin/kubectl-parallel-exec/releases/download/#{version}/kubectl-parallel-exec-darwin-arm64.tgz"
-      sha256 "e57e754d8af2e5f49447842ea9cbeec2d2a06484d7528e2098161da7b70562f2"
+      sha256 "ec0f4b00ac7a5f9cb525c2adb34c6fa2cdef0caf767234c9b811b1e672c47f8e"
     else
       url "https://github.com/cin/kubectl-parallel-exec/releases/download/#{version}/kubectl-parallel-exec-darwin-amd64.tgz"
-      sha256 "753ebfa80f4b1a5561fce9f98e154ad2a6b147a55ad1df8fea6b2d0110cd4320"
+      sha256 "90d38421dc1a916ff579285163112f18687a078be50297cf85bc97c4ce143b6e"
     end
   elsif OS.linux?
     if Hardware::CPU.arm?
       url "https://github.com/cin/kubectl-parallel-exec/releases/download/#{version}/kubectl-parallel-exec-linux-arm64.tgz"
-      sha256 "8b23be9a928ffe7f7c577b23e15164a36300af7bf60d74966eaa64ede7f4c288"
+      sha256 "c63dcc2bfedd364fe8f652d8b7d7917b81522a585896c596c8745479ce20d6a6"
     else
       url "https://github.com/cin/kubectl-parallel-exec/releases/download/#{version}/kubectl-parallel-exec-linux-amd64.tgz"
-      sha256 "3054e890b275cfbfd0f101f3b6bba4b61ee7806646f0c58a9f65edfe7598e6db"
+      sha256 "3de52d7d8caf4cc059f5fad23dff72dd5adbd6c3c13234e20071d1f4d3cae4fa"
     end
   end
 
